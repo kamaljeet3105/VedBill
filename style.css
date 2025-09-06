@@ -1650,7 +1650,7 @@
             position: fixed;
             top: 90%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-90%, -50%);
             z-index: 1000;
         }
 
@@ -1784,22 +1784,17 @@
             }
         }
 
-        @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .fixed-download-btn {
+      bottom: 15px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      width: auto;
+  }
 
-            /* Mobile-specific fixed button */
-            .fixed-download-btn {
-                bottom: 15px;
-                right: 15px;
-                left: auto;
-                /* don’t force it full width */
-                width: auto;
-                /* keep it small */
-                display: block;
-            }
-
-            .fixed-download-btn .btn {
-                width: auto;
-                padding: 14px 24px;
-                font-size: 1rem;
-            }
-        }
+  .fixed-download-btn .btn {
+      padding: 14px 24px;
+      font-size: 1rem;
+  }
+}
