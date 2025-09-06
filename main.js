@@ -182,4 +182,26 @@
             e.preventDefault();
             alert('Download initiated! In a real application, this would download your file.');
         });
+                // Simple counter animation for stats
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start) + "+";
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Start counters when stats section is in view
+        document.addEventListener('DOMContentLoaded', function() {
+            animateValue("clients", 0, 250, 2000);
+            animateValue("projects", 0, 500, 2000);
+            animateValue("team", 0, 40, 2000);
+            animateValue("awards", 0, 12, 2000);
+        });
        

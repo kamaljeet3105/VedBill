@@ -5,85 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Company Name</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <link rel="stylesheet" href="style.css?v=2">
     <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #4f46e5;
-            --accent: #22d3ee;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --success: #10b981;
-            --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            --accent-gradient: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
-        }
+      
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: var(--primary-gradient);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            color: var(--accent);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+       
         
         /* Hero Section */
         .hero {
@@ -278,16 +204,7 @@
             gap: 15px;
         }
         
-        .social-links a {
-            color: var(--primary);
-            font-size: 18px;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--accent);
-        }
-        
+       
         /* Values Section */
         .values {
             padding: 80px 0;
@@ -362,50 +279,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .footer-column h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            color: var(--accent);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column a:hover {
-            color: var(--accent);
-        }
-        
+       
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -459,23 +333,33 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container">
+      <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-receipt" style="font-size: 32px; color: #2563eb;"></i>
+                <h1>VedBill</h1>
+            </div>
+
             <nav>
-                <div class="logo">
-                    <i class="fas fa-rocket"></i>
-                    <span>Nexus</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#" class="active">About</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="booking.html">Book a Demo</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <div class="mobile-buttons" style="margin: -5px 0px 0px 20px;">
+                        <a href="#" class="btn btn-outline">Login</a>
+                        <a href="#" class="btn">Sign Up Free</a>
+                    </div>
                 </ul>
             </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
+
 
     <!-- Hero Section -->
     <section class="hero">
@@ -622,75 +506,58 @@
         </div>
     </section>
 
+    <!-- Fixed Download Button -->
+    <div class="fixed-download-btn">
+        <a href="download.html" class="btn btn-large btn-download">Download Now</a>
+    </div>
+
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>VedBill</h3>
+                    <p>Making billing and accounting simple for businesses of all sizes across India.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Use Cases</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Video Tutorials</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Development</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Consulting</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Connect</h3>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
-                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@company.com</li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Nexus. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2023 VedBill Software Pvt. Ltd. All rights reserved.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Simple counter animation for stats
-        function animateValue(id, start, end, duration) {
-            const obj = document.getElementById(id);
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                obj.innerHTML = Math.floor(progress * (end - start) + start) + "+";
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        // Start counters when stats section is in view
-        document.addEventListener('DOMContentLoaded', function() {
-            animateValue("clients", 0, 250, 2000);
-            animateValue("projects", 0, 500, 2000);
-            animateValue("team", 0, 40, 2000);
-            animateValue("awards", 0, 12, 2000);
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
