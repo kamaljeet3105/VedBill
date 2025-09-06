@@ -1615,4 +1615,28 @@
             font-weight: 500;
         }
 
-      
+           .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-download {
+            background-color: var(--success);
+            box-shadow: 0 4px 12px var(--success);
+        }
+        
+        .btn-download:hover {
+            background-color: var(--success);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px var(--success);
+        }
+        
+        /* Fixed Download Button */
+        .fixed-download-btn {
+        position: fixed;
+    bottom: 30px;          /* Distance from bottom */
+    left: 50%;             /* Move to the center */
+    transform: translateX(-50%); /* Adjust back by half width */
+    z-index: 99;
+    animation: pulse 2s infinite;
+        }
