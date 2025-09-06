@@ -1,515 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VedBill - Download</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --secondary: #4f46e5;
-            --accent: #22d3ee;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --success: #10b981;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: var(--dark);
-            line-height: 1.6;
-            background: linear-gradient(135deg, #f6f9ff 0%, #e9f2ff 100%);
-            min-height: 100vh;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-left: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        .btn-large {
-            padding: 16px 32px;
-            font-size: 1.1rem;
-        }
-        
-        .btn-download {
-            background-color: var(--success);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-        }
-        
-        .btn-download:hover {
-            background-color: #0da271;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-        }
-        
-        /* Fixed Download Button */
-        .fixed-download-btn {
-              position: fixed;
-    bottom: 30px;          /* Distance from bottom */
-    left: 45%;             /* Move to the center */
-    transform: translateX(-45%); /* Adjust back by half width */
-    z-index: 99;
-    animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-            }
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 100px 0 60px;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            color: #64748b;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        /* Download Options */
-        .download-options {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            color: #64748b;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .platform-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .platform-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .platform-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .platform-icon {
-            width: 80px;
-            height: 80px;
-            background-color: #e0f2fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 36px;
-        }
-        
-        .platform-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .platform-card p {
-            color: #64748b;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background-color: #e0f2fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-size: 24px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .feature-card p {
-            color: #64748b;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background-color: white;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: #f8fafc;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #64748b;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #e0f2fe;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .author-details h4 {
-            color: var(--dark);
-        }
-        
-        .author-details p {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        
-        /* FAQ Section */
-        .faq {
-            padding: 80px 0;
-        }
-        
-        .accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .accordion-item {
-            background-color: white;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-        
-        .accordion-header {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
-        
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        
-        .accordion-content.active {
-            max-height: 300px;
-            padding: 0 20px 20px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            
-            .fixed-download-btn {
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .fixed-download-btn {
-                bottom: 15px;
-                right: 15px;
-                left: 15px;
-                text-align: center;
-            }
-            
-            .platform-card, .feature-card, .testimonial-card {
-                padding: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Header -->
-    <header>
+     <header>
         <div class="container header-container">
             <div class="logo">
                 <i class="fas fa-receipt" style="font-size: 32px; color: #2563eb;"></i>
                 <h1>VedBill</h1>
             </div>
+            
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html" >Home</a></li>
                     <li><a href="index.html#features">Features</a></li>
                     <li><a href="index.html#pricing">Pricing</a></li>
                     <li><a href="booking.html">Book a Demo</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#download">Download</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <div class="mobile-buttons" style="margin: -5px 0px 0px 20px;">
+                        <a href="#" class="btn btn-outline">Login</a>
+                        <a href="#" class="btn">Sign Up Free</a>
+                    </div>
                 </ul>
             </nav>
-            <div class="header-buttons">
-                <a href="#" class="btn btn-outline">Login</a>
-                <a href="#" class="btn">Sign Up Free</a>
-            </div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h2>Download VedBill App</h2>
-            <p>Get started with India's most easy-to-use billing and accounting software. Available on all platforms.</p>
+            <p>Get started with India's most easy-to-use billing and accounting software. Available on all platforms.
+            </p>
             <a href="#download" class="btn btn-large">View Download Options</a>
         </div>
     </section>
@@ -527,7 +62,8 @@
                         <i class="fab fa-windows"></i>
                     </div>
                     <h3>Windows</h3>
-                    <p>Full-featured desktop application for Windows 10 and above. Perfect for retail stores and businesses.</p>
+                    <p>Full-featured desktop application for Windows 10 and above. Perfect for retail stores and
+                        businesses.</p>
                     <a href="#" class="btn">Download for Windows</a>
                 </div>
                 <div class="platform-card">
@@ -535,7 +71,8 @@
                         <i class="fab fa-apple"></i>
                     </div>
                     <h3>macOS</h3>
-                    <p>Native Mac application with seamless integration with macOS features. For Apple ecosystem users.</p>
+                    <p>Native Mac application with seamless integration with macOS features. For Apple ecosystem users.
+                    </p>
                     <a href="#" class="btn">Download for Mac</a>
                 </div>
                 <div class="platform-card">
@@ -563,14 +100,16 @@
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Lightning Fast</h3>
-                    <p>VedBill is optimized for performance, ensuring quick loading times and smooth operation even with large datasets.</p>
+                    <p>VedBill is optimized for performance, ensuring quick loading times and smooth operation even with
+                        large datasets.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
                     <h3>Secure & Reliable</h3>
-                    <p>Your data is protected with bank-level encryption and automatic backups. Never lose your business data again.</p>
+                    <p>Your data is protected with bank-level encryption and automatic backups. Never lose your business
+                        data again.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -593,7 +132,8 @@
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "The VedBill Android app has transformed how I manage my business. I can create invoices even when I'm not in my shop."
+                        "The VedBill Android app has transformed how I manage my business. I can create invoices even
+                        when I'm not in my shop."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">RM</div>
@@ -605,7 +145,8 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "I use VedBill on both my Mac and iPhone. The sync is flawless, and I always have access to my latest data."
+                        "I use VedBill on both my Mac and iPhone. The sync is flawless, and I always have access to my
+                        latest data."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">SP</div>
@@ -617,7 +158,8 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        "The Windows application is incredibly stable. I've been using it for 2 years without a single crash."
+                        "The Windows application is incredibly stable. I've been using it for 2 years without a single
+                        crash."
                     </div>
                     <div class="testimonial-author">
                         <div class="author-avatar">AS</div>
@@ -645,7 +187,8 @@
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>Yes, VedBill offers a free version with basic features. You can download and use it without any cost. We also offer premium plans with advanced features for growing businesses.</p>
+                        <p>Yes, VedBill offers a free version with basic features. You can download and use it without
+                            any cost. We also offer premium plans with advanced features for growing businesses.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -654,7 +197,8 @@
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>For Windows: Windows 10 or later, 4GB RAM, 500MB free disk space. For macOS: macOS 10.14 or later, 4GB RAM. For Android: Android 8.0 or later.</p>
+                        <p>For Windows: Windows 10 or later, 4GB RAM, 500MB free disk space. For macOS: macOS 10.14 or
+                            later, 4GB RAM. For Android: Android 8.0 or later.</p>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -663,7 +207,8 @@
                         <i class="fas fa-plus"></i>
                     </div>
                     <div class="accordion-content">
-                        <p>Yes, all our applications work offline. Your data will sync automatically when you're back online.</p>
+                        <p>Yes, all our applications work offline. Your data will sync automatically when you're back
+                            online.</p>
                     </div>
                 </div>
             </div>
@@ -672,7 +217,7 @@
 
     <!-- Fixed Download Button -->
     <div class="fixed-download-btn">
-        <a href="#" class="btn btn-large btn-download">Download VedBill Now</a>
+        <a href="download.html" class="btn btn-large btn-download">Download VedBill Now</a>
     </div>
 
     <!-- Footer -->
@@ -725,10 +270,10 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
             const navMenu = document.querySelector('.nav-menu');
             navMenu.classList.toggle('active');
-            
+
             // Change icon when menu is open/closed
             const icon = this.querySelector('i');
             if (navMenu.classList.contains('active')) {
@@ -756,10 +301,10 @@
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
                 const icon = header.querySelector('i');
-                
+
                 // Toggle active class
                 content.classList.toggle('active');
-                
+
                 // Change icon
                 if (content.classList.contains('active')) {
                     icon.classList.remove('fa-plus');
@@ -774,13 +319,13 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if(this.getAttribute('href') === '#') return;
-                
+                if (this.getAttribute('href') === '#') return;
+
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
-                if(targetElement) {
+
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -790,4 +335,5 @@
         });
     </script>
 </body>
+
 </html>

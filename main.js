@@ -177,5 +177,9 @@
                 }
             });
         });
-
+        // Add click event for demonstration purposes
+        document.querySelector('.download-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Download initiated! In a real application, this would download your file.');
+        });
        
